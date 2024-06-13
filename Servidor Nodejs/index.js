@@ -1,6 +1,9 @@
 const app = require('express')();
 const cors = require('cors');
 const parser = require('body-parser');
+require('dotenv').config();
+
+const connection = require('./connection');
 
 app.use(cors());
 app.use(parser.json());

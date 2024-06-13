@@ -2,8 +2,6 @@ POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "username": "gustava",
+    "username": "testuser",
     "password": "testpass"
 }
-
-cd Sertab

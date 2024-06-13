@@ -1,0 +1,49 @@
+
+.a {
+		font-size: 20px;
+        color: rgb(255, 247, 247);
+    
+    }
+
+  .myForm {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(166, 218, 166);
+    border-radius: 5px;
+    padding: 1em;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+  }
+  .input-group {
+   	display: flex;
+  }
+  .input-group > label {
+    margin-right: 1em; 
+    padding: .5em 0;
+  }
+  .myForm input,
+  .myForm select {
+    flex: 6; 
+    padding: .5em;
+    margin-bottom: 1em;
+  }
+  .myForm button {
+   padding: 1em; 
+    background: white;
+    color: rgb(58, 9, 9);
+    border: 0;
+  }
+  .myForm fieldset {
+   	border: 0; 
+  }
+  .taxi > label,
+  .extras > label {
+    display: block;
+  }

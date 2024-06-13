@@ -8,7 +8,7 @@ $resultado = $execute->fetch_assoc();
 
 ?>
 
-<?php
+<?php 
 session_start();
 
 if(!isset($_SESSION['usuario'])){

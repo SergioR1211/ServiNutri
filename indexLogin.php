@@ -41,26 +41,89 @@ if(isset($_SESSION['usuario'])){
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form action="login/login_usuario.php"  method="POST" class="formulario__login">
-                        <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input type="password" placeholder="Contraseña" name="clave">
-                        <button>Entrar</button>
+                <!--Login-->
+               <form class="formulario__login" onsubmit="loggin(event)">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Correo Electronico" id="username" name="correo" required>
+                    <input type="password" placeholder="Contraseña" id="password" name="clave" required>
+                    <button type="submit">Entrar</button>
+              </form>
+
+                   <!-- Register -->
+                    <form class="formulario__register" onsubmit="register(event)">
+                    <h2>Regístrarse</h2>
+                    <input type="text" placeholder="Nombre completo"  id="nombre_completo" name="nombre_completo" required>
+                    <input type="text" placeholder="Correo Electronico" id="username" name="correo" required>
+                    <input type="text" placeholder="Usuario" id="user" name="usuario" required>
+                    <input type="password" placeholder="Contraseña"  id="password" name="clave" required>
+                    <button type="submit">Regístrarse</button>
                     </form>
 
-                    <!--Register-->
-                    <form action="login/registroU.php" method="POST" class="formulario__register">
-                        <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombre completo"  name="nombre">
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input type="text" placeholder="Usuario" name="usuario">
-                        <input type="password" placeholder="Contraseña" name="clave">
-                        <button>Regístrarse</button>
-                    </form>
                 </div>
             </div>
 
         </main>
+        <script>
+             function loggin(event) {
+        event.preventDefault(); // Evita el envío del formulario
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username && password) {
+            fetch("http://localhost:5000/auth/login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then((res) => {
+                console.log(res.done)
+                console.log(res);
+                // Aquí puedes agregar lógica adicional si el inicio de sesión es exitoso
+            })
+            .catch((err) => {
+                console.log("Error al iniciar sesión");
+                console.error(err);
+            });
+        }
+    }
+        </script>
+
+        
+      <script>
+    function register(event) {
+        event.preventDefault(); // Evita el envío del formulario
+        const nombre_completo = document.getElementById('nombre_completo').value;
+        const username = document.getElementById('username').value;
+        const user = document.getElementById('user').value;
+        const password = document.getElementById('password').value;
+
+        if (nombre_completo && username && user && password) {
+            fetch("http://localhost:5000/auth/create", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre_completo, username, user, password })
+            })
+            .then(response => response.json())
+            .then((res) => {
+                console.log(res.done)
+                console.log(res);
+                if (res.message) {
+                    alert('Usuario creado exitosamente');
+                }
+            })
+            .catch((err) => {
+                console.log("Error al registrar usuario");
+                console.error(err);
+            });
+        }
+    }
+</script>
+
 
         <script src="/js/scriptLogin.js"></script>
 </body>

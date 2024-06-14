@@ -1,7 +1,19 @@
-POST http://localhost:5000/auth/login
-Content-Type: application/json
+# ctrl + k suelta k sin soltar ctrl y ctrl + c  comemtar
+# # # ctrl + k suelta k sin soltar ctrl y + u  descomemtar
+# POST http://localhost:5000/auth/login
+# Content-Type: application/json
 
-{
-    "username": "testuser",
-    "password": "testpass"
-}
+# {
+#     "username": "sergio@gmail.com",
+#     "password": "123456"
+# }
+
+# POST http://localhost:5000/auth/create
+# Content-Type: application/json
+
+# {
+#     "nombre_completo": "canonata",
+#     "username": "canita@gmail.com",
+#     "user": "canota",
+#     "password": "123456"
+# }

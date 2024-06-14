@@ -49,9 +49,10 @@ router.post('/login', (req , res) => {
         loginUser(username, password)
         .then((response) => { 
             //Si llegaron mandar un mensaje de que todo salio bien
-            res.status(200).send("All Ok! You are logged");
+            res.status(200).send({done: true});
         })
         .catch((error) => {
+            console.log(error)
             res.status(500).send("Server Internal Error. Something happened on the server.")
         })
     }else{
@@ -86,24 +87,16 @@ router.post('/login', (req , res) => {
  *         description: Error interno del servidor
  */
 
-router.post('/createUser', (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    if (username && password) {
-        createUser (username, password)
-        .then((response) => {
-            console.log("Error: ", error);
-            res.status(201).send("User created successfully");
-        })
-        .catch((error) => {
-            console.log("Error: ", error);
-            res.status(500).send("Server Internal Error. Something happened on the server.");
-        });
-    } else {
-        res.status(400).send("Bad request. Missing data request for the the route auth/createUser");
+router.post('/create', async (req, res) => {
+    const { nombre_completo, username, user, password } = req.body;
+    try {
+      const result = await createUser(nombre_completo, username, user, password);
+      res.status(201).send({done: true});
+    } catch (err) {
+      console.error(err); // Asegúrate de loggear el error para debuguear
+      res.status(500).json({ error: err.message });
     }
-});
+  });
 
 /**
  * @swagger

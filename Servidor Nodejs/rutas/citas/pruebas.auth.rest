@@ -1,4 +1,16 @@
-# ##ctrl + k suelta k sin soltar ctrl y ctrl + c  comentar
+##ctrl + k suelta k sin soltar ctrl y ctrl + c  comentar
 # # # ctrl + k suelta k sin soltar ctrl y + u  descomemtar
-# GET http://localhost:5000/citas/citas
+# PUT http://localhost:5000/citas/citas/36
 # Content-Type: application/json
+
+# {
+#      "Nombre_Paciente": "canonata",
+#      "genero": "M",
+#      "edad": 13,
+#      "correo": "sergiño@gmail.com",
+#       "fecha": "2024-06-14",
+#       "hora": "08:46:00",
+#       "lugar": "sdsdasd",
+#       "motivo": "sdadasdasd",
+#       "nutriologo":"sdasdasd"
+# }

@@ -21,7 +21,7 @@ router.get('/citas/:id', (req, res) => {
 });
 
 router.put('/citas/:id', (req, res) => {
-  citasController.updateCita(req.params.id, req.body)
+  citasController.updatedCita(req.params.id, req.body)
     .then(cita => res.json(cita))
     .catch(error => res.status(400).send(error));
 });

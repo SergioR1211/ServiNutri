@@ -52,7 +52,7 @@ function getCitaById(id) {
   });
 }
 
-function updateCita(id, data) {
+function updatedCita(id, data) {
   const { Nombre_Paciente, genero, edad, correo, fecha, hora, lugar, descripcion, nutriologo } = data;
   const query = `UPDATE citass SET Nombre_Paciente = ?, genero = ?, edad = ?, correo = ?, fecha = ?, hora = ?, lugar = ?, descripcion = ?, nutriologo = ? WHERE id = ?`;
   const values = [Nombre_Paciente, genero, edad, correo, fecha, hora, lugar, descripcion, nutriologo, id];
@@ -91,6 +91,6 @@ module.exports = {
   createCita,
   getAllCitas,
   getCitaById,
-  updateCita,
+  updatedCita,
   deleteCita
 };

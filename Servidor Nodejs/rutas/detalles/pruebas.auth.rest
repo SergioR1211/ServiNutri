@@ -1,0 +1,19 @@
+# POST http://localhost:5000/Registro/CrearDetalle
+# Content-Type: application/json
+
+# {
+#   "id_lugar": 1,
+#   "lugar": [
+#     {
+#       "nombre": "Nutricion para todos",
+#       "direccion": "zona centro #200",
+#       "ciudad": "gomez palacio",
+#       "estado": "durango",
+#       "codigo_postal": 12345,
+#       "pais": "mexico"
+#     }
+#   ]
+# }
+
+GET http://localhost:5000/Registro/ObtenerDetalles
+Content-Type: application/json

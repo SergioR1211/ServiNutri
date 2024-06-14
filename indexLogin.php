@@ -52,10 +52,10 @@ if(isset($_SESSION['usuario'])){
                    <!-- Register -->
                     <form class="formulario__register" onsubmit="register(event)">
                     <h2>Regístrarse</h2>
-                    <input type="text" placeholder="Nombre completo"  id="nombre_completo" name="nombre_completo" required>
-                    <input type="text" placeholder="Correo Electronico" id="username" name="correo" required>
-                    <input type="text" placeholder="Usuario" id="user" name="usuario" required>
-                    <input type="password" placeholder="Contraseña"  id="password" name="clave" required>
+                    <input type="text" placeholder="Nombre completo"  id="register_nombre_completo" name="nombre_completo" required>
+                    <input type="text" placeholder="Correo Electronico" id="register_username" name="correo" required>
+                    <input type="text" placeholder="Usuario" id="register_user" name="usuario" required>
+                    <input type="password" placeholder="Contraseña"  id="register_password" name="clave" required>
                     <button type="submit">Regístrarse</button>
                     </form>
 
@@ -95,10 +95,10 @@ if(isset($_SESSION['usuario'])){
       <script>
     function register(event) {
         event.preventDefault(); // Evita el envío del formulario
-        const nombre_completo = document.getElementById('nombre_completo').value;
-        const username = document.getElementById('username').value;
-        const user = document.getElementById('user').value;
-        const password = document.getElementById('password').value;
+        const nombre_completo = document.getElementById('register_nombre_completo').value;
+        const username = document.getElementById('register_username').value;
+        const user = document.getElementById('register_user').value;
+        const password = document.getElementById('register_password').value;
 
         if (nombre_completo && username && user && password) {
             fetch("http://localhost:5000/auth/create", {
@@ -120,6 +120,8 @@ if(isset($_SESSION['usuario'])){
                 console.log("Error al registrar usuario");
                 console.error(err);
             });
+        }else{
+            alert("No haz ingresado todos los datos")
         }
     }
 </script>

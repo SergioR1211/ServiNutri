@@ -9,9 +9,14 @@ app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 
-const AuthRouter = require('./rutas/auth/auth.route');
-app.use('/auth', AuthRouter);
+const loginRouter = require('./rutas/login/login.route.js');
+app.use('/login', loginRouter);
 
+const ComidasRouter = require('./rutas/comidas/comidas.route.js');
+app.use('/comida', ComidasRouter);
+
+const CitasRouter = require('./rutas/citas/citas.router.js')
+app.use('/citas', CitasRouter);
 
 
 app.listen(5000, () => {

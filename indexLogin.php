@@ -50,7 +50,7 @@ if(isset($_SESSION['usuario'])){
               </form>
 
                    <!-- Register -->
-                    <form class="formulario__register" onsubmit="register(event)">
+                    <form class="formulario__register" onsubmit="register_API(event)">
                     <h2>Regístrarse</h2>
                     <input type="text" placeholder="Nombre completo"  id="register_nombre_completo" name="nombre_completo" required>
                     <input type="text" placeholder="Correo Electronico" id="register_username" name="correo" required>
@@ -70,7 +70,7 @@ if(isset($_SESSION['usuario'])){
         const password = document.getElementById('password').value;
 
         if (username && password) {
-            fetch("http://localhost:5000/auth/login", {
+            fetch("http://localhost:5000/login/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -89,11 +89,8 @@ if(isset($_SESSION['usuario'])){
             });
         }
     }
-        </script>
-
-        
-      <script>
-    function register(event) {
+    
+    function register_API(event) {
         event.preventDefault(); // Evita el envío del formulario
         const nombre_completo = document.getElementById('register_nombre_completo').value;
         const username = document.getElementById('register_username').value;
@@ -101,7 +98,7 @@ if(isset($_SESSION['usuario'])){
         const password = document.getElementById('register_password').value;
 
         if (nombre_completo && username && user && password) {
-            fetch("http://localhost:5000/auth/create", {
+            fetch("http://localhost:5000/login/create", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,0 +1,4 @@
+# ##ctrl + k suelta k sin soltar ctrl y ctrl + c  comentar
+# # # ctrl + k suelta k sin soltar ctrl y + u  descomemtar
+# GET http://localhost:5000/citas/citas
+# Content-Type: application/json

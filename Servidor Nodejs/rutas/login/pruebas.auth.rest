@@ -1,0 +1,19 @@
+# ctrl + k suelta k sin soltar ctrl y ctrl + c  comentar
+# # # # ctrl + k suelta k sin soltar ctrl y + u  descomemtar
+# POST http://localhost:5000/login/login
+# Content-Type: application/json
+
+# {
+#     "username": "sergio@gmail.com",
+#     "password": "123456"
+# }
+
+# POST http://localhost:5000/login/create
+# Content-Type: application/json
+
+# {
+#     "nombre_completo": "canonata",
+#     "username": "canita@gmail.com",
+#     "user": "canota",
+#     "password": "123456"
+# }

@@ -1,0 +1,2 @@
+GET http://localhost:5000/comida/alimentos
+Content-Type: application/json
